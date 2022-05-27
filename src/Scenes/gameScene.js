@@ -51,7 +51,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo, loadFunc }, ref) => 
         },
         sceneStart: () => {
             parentRef.current.className = 'aniObject'
-            startFirstPart()
+            optionRef.current.startGame()
             loadFunc()
         },
         sceneEnd: () => {
@@ -64,7 +64,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo, loadFunc }, ref) => 
 
     }))
 
-  
+
 
     const playZoomAnimation = () => {
         let imageNum = 0;
@@ -200,8 +200,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo, loadFunc }, ref) => 
 
             case SIGNALLIST.increaseMark:
                 starRefs[totalStep].current.setClass('show')
-                audioList.tingAudio.currentTime = 0
-                audioList.tingAudio.play().catch(error => { })
+          
                 totalStep++;
                 break;
 

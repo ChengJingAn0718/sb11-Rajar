@@ -162,8 +162,6 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo }, ref) =>
         transSignaler(SIGNALLIST.increaseMark)
 
         setTimeout(() => {
-
-
             if (stepCount < optionGroup.length - 1) {
 
                 correctNum = 0;
@@ -235,7 +233,7 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo }, ref) =>
                     nextFunc()
                 }, 3000);
             }
-        }, 1000);
+        }, 2000);
     }
 
     const getRandomAnswerList = () => {
@@ -255,6 +253,7 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo }, ref) =>
         getRandomAnswerList()
 
     const judgeFunc = (num) => {
+        audioList.buzzAudio.pause()
         if (num == doneCount + correctNum) {
 
             parentObject.current.style.pointerEvents = 'none'
@@ -267,10 +266,14 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo }, ref) =>
             clickRefList[num].current.style.top = '47%'
 
             correctNum++
+            audioList.tingAudio.currentTime = 0;
             audioList.tingAudio.play();
 
             if (correctNum == answerList.length)
-                goNextStep()
+                setTimeout(() => {
+                    goNextStep()
+                }, 1000);
+
 
             else {
                 audioList.bodyAudio2.src = getAudioPath('Option/q' + (stepCount + 1) + '/' + (correctNum + 1))
@@ -286,7 +289,7 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo }, ref) =>
                         startRepeatAudio()
                         // audioList.commonAudio1.play();
                     }, audioList.bodyAudio2.duration * 1000 + 300);
-                }, 1500);
+                }, 2000);
             }
         }
         else {
