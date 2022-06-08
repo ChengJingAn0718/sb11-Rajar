@@ -31,7 +31,7 @@ export const MaskComponent = React.forwardRef((prop, ref) => {
             }}
         >
             <BaseImage
-                url={'Introduction/color_bg.png'}
+                url={'intro/color_bg.png'}
             />
         </div>
     )

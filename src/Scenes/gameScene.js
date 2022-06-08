@@ -35,7 +35,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo, loadFunc }, ref) => 
     const parentRef = useRef()
 
     useEffect(() => {
-
+        setRepeatType(1)
 
 
         return () => {

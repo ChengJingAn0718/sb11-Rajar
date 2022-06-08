@@ -68,7 +68,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, loadFunc, bgLoaded }, ref)
     ]
 
     const audioPathList = [
-        ['5'],
+        ['2'],
         ['3'],
         ['4'],
         ['5'],
@@ -83,6 +83,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, loadFunc, bgLoaded }, ref)
     React.useImperativeHandle(ref, () => ({
         sceneLoad: () => {
             setSceneLoad(true)
+            
         },
         sceneStart: () => {
             loadFunc()
@@ -97,7 +98,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, loadFunc, bgLoaded }, ref)
             currentImage.current.style.transition = '0.5s'
 
             setTimeout(() => {
-                setLoadSubPart(true)
+                setLoadSubPart(true)    
                 audioList.bodyAudio2.play()
                 setTimeout(() => {
                     showIndividualImage()

@@ -20,10 +20,9 @@ let doneCount = 0
 
 
 const posInfoList = [
-    { f: '1', wN: '1', x: 4 },
-    { f: '1', wN: '2', x: 29 },
-    { f: '1', wN: '3', x: 54 },
-    { f: '1', wN: '4', x: 79 },
+    { f: '1', wN: '1', x: 10 },
+    { f: '1', wN: '2', x: 42.5 },
+    { f: '1', wN: '3', x: 75 },
 
     { f: '2', wN: '1', x: 25 },
     { f: '2', wN: '2', x: 60 },
@@ -36,11 +35,11 @@ const posInfoList = [
 ]
 
 let stepCount = 0;
-let optionGroup = [4, 2, 2, 2]
+let optionGroup = [3, 2, 2, 2]
 
 
 const iconMovePosList = [
-    [4, 29, 54, 78.5],
+    [10, 42.5, 75],
     [25, 60]
 ]
 
