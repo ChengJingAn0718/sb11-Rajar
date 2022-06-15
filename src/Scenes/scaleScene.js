@@ -2,7 +2,7 @@ import React, {  useRef, useContext, useState } from 'react';
 import "../stylesheets/styles.css";
 import BaseImage from '../components/BaseImage';
 import { UserContext } from '../components/BaseShot';
-import { getAudioPath, prePathUrl } from "../components/CommonFunctions";
+import { getAudioPath, prePathUrl, setExtraVolume } from "../components/CommonFunctions";
 import { MaskComponent } from '../components/CommonComponents';
 
 let currentMaskNum = 0;
@@ -90,6 +90,10 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, loadFunc, bgLoaded }, ref)
             baseObject.current.className = 'aniObject'
             audioList.bodyAudio1.src = getAudioPath('intro/2');
             audioList.bodyAudio2.src = getAudioPath('intro/1');
+
+            setExtraVolume(audioList.bodyAudio1, 2)
+            setExtraVolume(audioList.bodyAudio2, 2)
+            setExtraVolume(audioList.bodyAudio3, 2)
 
             blackWhiteObject.current.style.WebkitMaskImage = 'url("' +
                 returnImgPath(maskPathList[currentMaskNum][0], true) + '")'

@@ -15,6 +15,8 @@ export default function Scene18({ nextFunc, _geo, _baseGeo }) {
 
         audioList.bodyAudio1.src = prePathUrl() + "sounds/effect/excellent.mp3"
         setRepeatAudio(audioList.replayAudio)
+        setExtraVolume(audioList.replayAudio, 2)
+        
         setRepeatType(2)
 
         timerList[0] = setTimeout(() => {
