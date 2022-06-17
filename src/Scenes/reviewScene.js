@@ -101,9 +101,9 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo }, ref) => {
 
             setRepeatAudio(audioList.commonAudio3)
 
-            setExtraVolume(audioList.commonAudio3, 2)
+            setExtraVolume(audioList.commonAudio3, 4)
             for (let i = 0; i < 13; i++)
-                setExtraVolume(audioList[i], 2)
+                setExtraVolume(audioList[i], 4)
 
 
         },
