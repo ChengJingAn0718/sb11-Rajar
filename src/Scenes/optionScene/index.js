@@ -79,8 +79,8 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo }, ref) =>
             setPrimaryAudio(audioList.bodyAudio2)
             setRepeatAudio(audioList.commonAudio1)
 
-            audioList.bodyAudio1.src = getAudioPath('Option/q' + (stepCount + 1) + '/question')
-            audioList.bodyAudio2.src = getAudioPath('Option/q' + (stepCount + 1) + '/1')
+            audioList.bodyAudio1.src = getAudioPath('option/q' + (stepCount + 1) + '/question')
+            audioList.bodyAudio2.src = getAudioPath('option/q' + (stepCount + 1) + '/1')
 
             parentObject.current.className = 'appear'
             parentObject.current.style.pointerEvents = ''
@@ -96,8 +96,8 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo }, ref) =>
             }, 1500);
         },
         startGame: () => {
-            audioList.bodyAudio1.src = getAudioPath('Option/q1/question') //question
-            audioList.bodyAudio2.src = getAudioPath('Option/q1/1') // each word
+            audioList.bodyAudio1.src = getAudioPath('option/q1/question') //question
+            audioList.bodyAudio2.src = getAudioPath('option/q1/1') // each word
 
             setPrimaryAudio(audioList.bodyAudio2)
             setRepeatAudio(audioList.commonAudio1)
@@ -177,8 +177,8 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo }, ref) =>
                     }, 2000);
                 }
                 else {
-                    audioList.bodyAudio1.src = getAudioPath('Option/q' + (stepCount + 1) + '/question')
-                    audioList.bodyAudio2.src = getAudioPath('Option/q' + (stepCount + 1) + '/1')
+                    audioList.bodyAudio1.src = getAudioPath('option/q' + (stepCount + 1) + '/question')
+                    audioList.bodyAudio2.src = getAudioPath('option/q' + (stepCount + 1) + '/1')
                     disableState = false
                     parentObject.current.className = 'disapear'
                 }
@@ -290,7 +290,7 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo }, ref) =>
 
 
             else {
-                audioList.bodyAudio2.src = getAudioPath('Option/q' + (stepCount + 1) + '/' + (correctNum + 1))
+                audioList.bodyAudio2.src = getAudioPath('option/q' + (stepCount + 1) + '/' + (correctNum + 1))
 
                 transSignaler(SIGNALLIST.loadSecondPart)  // loadSecond part...
 
@@ -359,7 +359,7 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo }, ref) =>
                                 b: 0.09
                             }}
                             ref={textRefList[index]}
-                            url={"Option/q" + value.f + "/word" + value.wN + ".png"}
+                            url={"option/q" + value.f + "/word" + value.wN + ".png"}
                         />
                     </div>
 
@@ -385,7 +385,7 @@ const OptionScene = React.forwardRef(({ nextFunc, transSignaler, _geo }, ref) =>
                         }}>
                         <BaseImage
                             posInfo={{ l: 0, t: 0 }}
-                            url={"Option/q" + value.f + "/icon" + value.wN + ".png"}
+                            url={"option/q" + value.f + "/icon" + value.wN + ".png"}
                         />
                     </div>
                 )

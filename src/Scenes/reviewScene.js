@@ -92,7 +92,6 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo }, ref) => {
             setRepeatType(2)
 
             audioList.bodyAudio1.src = prePathUrl() + "sounds/main/common/review0.mp3"
-            audioList.bodyAudio2.src = prePathUrl() + "sounds/main/common/review1.mp3"
 
             imageCount = 0;
             isEffectPassed = true;
@@ -101,9 +100,9 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo }, ref) => {
 
             setRepeatAudio(audioList.commonAudio3)
 
-            setExtraVolume(audioList.commonAudio3, 4)
-            for (let i = 0; i < 13; i++)
-                setExtraVolume(audioList[i], 4)
+            setExtraVolume(audioList.commonAudio3, 6)
+            
+                
 
 
         },
@@ -117,19 +116,14 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo }, ref) => {
             timerList[6] = setTimeout(() => {
                 audioList.bodyAudio1.play();
 
-                // timerList[7] = setTimeout(() => {
-                // audioList.bodyAudio2.play();
-
                 timerList[8] = setTimeout(() => {
                     audioList.commonAudio3.play()
                     startRepeatAudio()
 
-                    // }, audioList.bodyAudio2.duration * 1000 + 300);
                 }, audioList.bodyAudio1.duration * 1000 + 1000);
 
             }, 1500);
 
-            // baseObject.current.className = 'aniObject'
         }
     }
 
@@ -210,8 +204,13 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo }, ref) => {
         }, 150);
 
         clickedList.push(index)
+        
+        setExtraVolume(audioList[index], 6)
 
-        audioList[index].play();
+        setTimeout(() => {
+            audioList[index].play();    
+        }, 50);
+        
         if (clickedList.length == doneCount + wordGround[stepCount]) {
             setTimeout(() => {
                 if (stepCount != wordGround.length - 1)
@@ -298,7 +297,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo }, ref) => {
                             width={"100%"}
                             draggable={false}
                             onLoad={loadImage}
-                            src={prePathUrl() + 'images/Word/title.png'}
+                            src={prePathUrl() + 'images/word/title.png'}
                         />
                     </div>
 
@@ -354,7 +353,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo }, ref) => {
                                                     left: (0.082 - textInfoList[index].l) * _geo.width,
                                                     top: _geo.height * (0.03 - textInfoList[index].t)
                                                 }}
-                                                src={prePathUrl() + "images/Word/set" + returnSetName(index) + "/" + textInfoList[index].path + ".png"}
+                                                src={prePathUrl() + "images/word/set" + returnSetName(index) + "/" + textInfoList[index].path + ".png"}
 
                                             />
                                         </div>
@@ -369,7 +368,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo }, ref) => {
                                             top: _geo.height * (0.03 + gapList[index].y)
                                         }}
                                         onLoad={index < wordGround[0] ? loadImage : null}
-                                        src={prePathUrl() + "images/Word/set" + returnSetName(index) + "/" + iconList[index] + ".png"}
+                                        src={prePathUrl() + "images/word/set" + returnSetName(index) + "/" + iconList[index] + ".png"}
                                     />
                                     <div
                                         ref={clickRefList[index]}

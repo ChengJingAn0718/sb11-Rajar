@@ -91,9 +91,9 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, loadFunc, bgLoaded }, ref)
             audioList.bodyAudio1.src = getAudioPath('intro/2');
             audioList.bodyAudio2.src = getAudioPath('intro/1');
 
-            setExtraVolume(audioList.bodyAudio1, 4)
-            setExtraVolume(audioList.bodyAudio2, 4)
-            setExtraVolume(audioList.bodyAudio3, 4)
+            setExtraVolume(audioList.bodyAudio1, 6)
+            setExtraVolume(audioList.bodyAudio2, 6)
+            setExtraVolume(audioList.bodyAudio3, 6)
 
             blackWhiteObject.current.style.WebkitMaskImage = 'url("' +
                 returnImgPath(maskPathList[currentMaskNum][0], true) + '")'
@@ -105,6 +105,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, loadFunc, bgLoaded }, ref)
                 setLoadSubPart(true)    
                 audioList.bodyAudio2.play()
                 setTimeout(() => {
+                    // nextFunc()
                     showIndividualImage()
                 }, audioList.bodyAudio2.duration * 1000 + 1000);
             }, 3000);
@@ -126,7 +127,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, loadFunc, bgLoaded }, ref)
     function showIndividualImage() {
 
 
-        let currentMaskName = maskPathList[currentMaskNum]
+        let currentMaskName = maskPathList[currentMaskNum][0]
         baseObject.current.style.transition = durationList[currentMaskNum] + 's'
 
 
@@ -220,10 +221,10 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, loadFunc, bgLoaded }, ref)
 
                                 currentMaskNum++;
 
-                                currentMaskName = maskPathList[currentMaskNum]
+                                currentMaskName = maskPathList[currentMaskNum][0]
                                 if (currentMaskName != 'sub')
                                     blackWhiteObject.current.style.WebkitMaskImage = 'url("' +
-                                        returnImgPath(maskPathList[currentMaskNum], true) + '")'
+                                        returnImgPath(maskPathList[currentMaskNum][0], true) + '")'
 
                                 blackWhiteObject.current.className = 'hide'
                                 setTimeout(() => {

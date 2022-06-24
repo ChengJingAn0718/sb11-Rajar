@@ -53,8 +53,8 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo, loadFunc }, ref) => 
             parentRef.current.className = 'aniObject'
             optionRef.current.startGame()
 
-            setExtraVolume(audioList.commonAudio2,4)
-            setExtraVolume(audioList.commonAudio1,4)
+            setExtraVolume(audioList.commonAudio2, 6)
+            setExtraVolume(audioList.commonAudio1, 6)
 
             loadFunc()
         },
@@ -89,13 +89,14 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo, loadFunc }, ref) => 
 
     const showControlFunc = () => {
 
-        blackWhiteObject.current.style.WebkitMaskImage = 'url("' + prePathUrl() + 'images/Questions/q' + (stepCount + 2) + '/mask.png")'
-
-
-        aniImageList.map((image, index) => {
-            if (index < 3)
-                image.current.setUrl('Questions/q' + (stepCount + 2) + '/q' + (index + 1) + '.png')
-        })
+        if (stepCount < questionPartCount - 1) {
+            blackWhiteObject.current.style.WebkitMaskImage =
+                'url("' + prePathUrl() + 'images/questions/q' + (stepCount + 2) + '/mask.png")'
+            aniImageList.map((image, index) => {
+                if (index < 3)
+                    image.current.setUrl('questions/q' + (stepCount + 2) + '/q' + (index + 1) + '.png')
+            })
+        }
 
 
         timerList[2] = setTimeout(() => {
@@ -113,7 +114,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo, loadFunc }, ref) => 
         aniImageList[3].current.setClass('hideObject')
         blackWhiteObject.current.className = 'show halfOpacity'
 
-        aniImageList[3].current.setUrl('Questions/q' + (stepCount + 1) + '/q4.png')
+        aniImageList[3].current.setUrl('questions/q' + (stepCount + 1) + '/q4.png')
 
         if (!isDisabled)
             timerList[3] = setTimeout(() => {
@@ -138,7 +139,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo, loadFunc }, ref) => 
 
         stepCount++
         if (stepCount < questionPartCount)
-            audioList.bodyAudio1.src = getAudioPath('Question/q' + (stepCount + 1) + "/1")  //question
+            audioList.bodyAudio1.src = getAudioPath('question/q' + (stepCount + 1) + "/1")  //question
 
         audioList.bodyAudio2.play().catch(error => { });
         buttonRefs.current.style.pointerEvents = 'none'
@@ -150,7 +151,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo, loadFunc }, ref) => 
             totalStep++
 
             if (stepCount < questionPartCount)
-                audioList.bodyAudio2.src = getAudioPath('Question/q' + (stepCount + 1) + "/2") //answer
+                audioList.bodyAudio2.src = getAudioPath('question/q' + (stepCount + 1) + "/2") //answer
 
             setTimeout(() => {
                 audioList.successAudio.pause();
@@ -204,7 +205,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo, loadFunc }, ref) => 
 
             case SIGNALLIST.increaseMark:
                 starRefs[totalStep].current.setClass('show')
-          
+
                 totalStep++;
                 break;
 
@@ -244,8 +245,8 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo, loadFunc }, ref) => 
 
         }, 500);
 
-        audioList.bodyAudio1.src = getAudioPath('Question/q1/1')  //question
-        audioList.bodyAudio2.src = getAudioPath('Question/q1/2')  //answer
+        audioList.bodyAudio1.src = getAudioPath('question/q1/1')  //question
+        audioList.bodyAudio2.src = getAudioPath('question/q1/2')  //answer
     }
 
     const continueFirstPart = () => {
@@ -267,8 +268,8 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo, loadFunc }, ref) => 
         setPrimaryAudio(audioList.bodyAudio1)
         setRepeatAudio(audioList.commonAudio2)
 
-        audioList.bodyAudio1.src = getAudioPath('Question/q' + (stepCount + 1) + "/1")  //question
-        audioList.bodyAudio2.src = getAudioPath('Question/q' + (stepCount + 1) + "/2") //answer
+        audioList.bodyAudio1.src = getAudioPath('question/q' + (stepCount + 1) + "/1")  //question
+        audioList.bodyAudio2.src = getAudioPath('question/q' + (stepCount + 1) + "/2") //answer
 
         timerList[3] = setTimeout(() => {
             audioList.bodyAudio1.play().catch(error => { });
@@ -325,11 +326,11 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo, loadFunc }, ref) => 
                                             , cursor: "pointer",
                                         }}>
                                         <BaseImage
-                                            url={'Icon/SB13_Progress_Bar_Gray.png'}
+                                            url={'icon/sb13_progress_bar_gray.png'}
                                         />
                                         <BaseImage
                                             ref={starRefs[8 - value]}
-                                            url={'Icon/SB13_Progress_Bar.png'}
+                                            url={'icon/sb13_progress_bar.png'}
                                             className='hideObject'
                                         />
                                     </div>)
@@ -352,7 +353,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo, loadFunc }, ref) => 
 
                                 <BaseImage
                                     ref={baseColorImgRef}
-                                    url={"Questions/base.png"}
+                                    url={"questions/base.png"}
                                 />
 
                                 <div
@@ -363,7 +364,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo, loadFunc }, ref) => 
                                         , height: '100%',
                                         left: '0%',
                                         top: '0%',
-                                        WebkitMaskImage: 'url(' + prePathUrl() + 'images/Questions/q1/mask.png)',
+                                        WebkitMaskImage: 'url(' + prePathUrl() + 'images/questions/q1/mask.png)',
                                         WebkitMaskSize: '100% 100%',
                                         WebkitMaskRepeat: "no-repeat",
                                         background: 'black',
@@ -378,7 +379,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo, loadFunc }, ref) => 
                                             ref={aniImageList[value - 1]}
                                             scale={1}
                                             posInfo={{ l: 0, t: 0 }}
-                                            url={"Questions/q1/q" + value + ".png"}
+                                            url={"questions/q1/q" + value + ".png"}
                                         />
                                     )
                                 }
@@ -392,7 +393,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo, loadFunc }, ref) => 
                                     }}>
                                     <BaseImage
                                         ref={aniImageList[3]}
-                                        url={"Questions/q1/q4.png"}
+                                        url={"questions/q1/q4.png"}
                                     />
                                 </div>
 
@@ -420,7 +421,7 @@ const Scene = React.forwardRef(({ nextFunc, _baseGeo, _geo, loadFunc }, ref) => 
                                                 top: '-32%'
                                             }}
                                             draggable={false}
-                                            src={prePathUrl() + 'images/Buttons/Answer_Button.svg'}
+                                            src={prePathUrl() + 'images/buttons/answer_button.svg'}
                                         />
                                     </div>
                                 </div>

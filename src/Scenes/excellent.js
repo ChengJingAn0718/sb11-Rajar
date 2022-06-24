@@ -15,7 +15,7 @@ export default function Scene18({ nextFunc, _geo, _baseGeo }) {
 
         audioList.bodyAudio1.src = prePathUrl() + "sounds/effect/excellent.mp3"
         setRepeatAudio(audioList.replayAudio)
-        setExtraVolume(audioList.replayAudio, 3)
+        setExtraVolume(audioList.replayAudio, 4)
         
         setRepeatType(2)
 
@@ -130,7 +130,7 @@ export default function Scene18({ nextFunc, _geo, _baseGeo }) {
 
                         width={"100%"}
                         draggable={false}
-                        src={prePathUrl() + 'images/Buttons/Replay_Blue.svg'}
+                        src={prePathUrl() + 'images/buttons/replay_blue.svg'}
                     />
                 </div>
             </div>
